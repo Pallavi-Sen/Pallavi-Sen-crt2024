@@ -1,0 +1,65 @@
+Write a program to check whether the given number is prime or not, If number is prime, find the square root of the number else print given number is not a prime number.
+
+Input Format
+
+Read a number
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print output
+
+Sample Input 0
+
+8
+Sample Output 0
+
+8 is not a prime no
+Sample Input 1
+
+7
+Sample Output 1
+
+2.65
+
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+   public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int num = scanner.nextInt();
+        if (isPrime(num)) {
+            double sqrt = Math.sqrt(num);
+            System.out.printf("%.2f%n", sqrt);
+        } else {
+            System.out.println(num + " is not a prime no");
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        if (num == 2) {
+            return true; 
+        }
+        if (num % 2 == 0) {
+            return false; 
+        }
+        for (int i = 3; i <= Math.sqrt(num); i += 2) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true; 
+    }
+}
+
